@@ -1,3 +1,4 @@
+
 const tabela = document.getElementById("tabela")
 
 colecaoElementos.forEach((elemento) => {
@@ -7,7 +8,8 @@ colecaoElementos.forEach((elemento) => {
     <h3>${elemento.simbolo}</h3>
     <p>${elemento.nome}</p>
     <p>${elemento.massaAtomica}</p>`
-    tabela.rows[elemento.linha-1].cells[elemento.coluna-1].style.backgroundColor = "#"+elemento.corHexCpk
+
+    tabela.rows[elemento.linha-1].cells[elemento.coluna-1].style.backgroundColor = elemento.corGrupo
     celula._elemento = elemento
     
     
@@ -31,4 +33,3 @@ document.querySelectorAll('td').forEach(td => {
 })
         
 })
-
