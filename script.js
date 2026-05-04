@@ -17,19 +17,27 @@ colecaoElementos.forEach((elemento) => {
 
 
 document.querySelectorAll('td').forEach(td => {
-        td.addEventListener("click", (event) => {
+        td.addEventListener("mouseover", (event) => {
         const celula = event.currentTarget;
         const elemento = celula._elemento;
         if (!elemento) return;
-        detalhes.style.display = "block"
         
         document.getElementById("detalhes").innerHTML =`
-            <button id="fechar">X</button>
             <h1>${elemento.nome}</h1>`
-
-        document.getElementById("fechar").addEventListener("click", () => {
-        document.getElementById("detalhes").style.display = "none"
+})        
 })
-})
-        
+const metal = document.getElementById("metal")
+metal.addEventListener("mouseover", (event) => {
+    colecaoElementos.forEach((elemento) => {
+        if (elemento.grupo != "metal") {
+            tabela.rows[elemento.linha-1].cells[elemento.coluna-1].style.backgroundColor = "#ffffff"
+        }
+        metal.addEventListener("mouseout", () => {
+            document.querySelectorAll('td').forEach((celula) => {
+                const elemento = celula._elemento;
+                if (!elemento) return;
+                celula.style.backgroundColor = elemento.corGrupo
+            })
+        })
+    })
 })
