@@ -1,4 +1,4 @@
-
+/* colocando os elementos na tabela */
 const tabela = document.getElementById("tabela")
 
 colecaoElementos.forEach((elemento) => {
@@ -15,7 +15,7 @@ colecaoElementos.forEach((elemento) => {
     
 })          
 
-
+/* aparecer o elemento na div */
 document.querySelectorAll('td').forEach(td => {
         td.addEventListener("mouseover", (event) => {
         const celula = event.currentTarget;
@@ -24,20 +24,24 @@ document.querySelectorAll('td').forEach(td => {
         
         document.getElementById("detalhes").innerHTML =`
             <h1>${elemento.nome}</h1>`
+            document.getElementById("detalhes").style.backgroundColor = elemento.corGrupo
 })        
 })
-const metal = document.getElementById("metal")
-metal.addEventListener("mouseover", (event) => {
+
+/* classificações dos elementos, filtrá-los */
+document.querySelectorAll("#classificacoes div").forEach((bloco) => {
     colecaoElementos.forEach((elemento) => {
-        if (elemento.grupo != "metal") {
-            tabela.rows[elemento.linha-1].cells[elemento.coluna-1].style.backgroundColor = "#ffffff"
+        bloco.addEventListener("mouseover", () => {
+        if (elemento.grupo != bloco.dataset.grupo) {
+             tabela.rows[elemento.linha-1].cells[elemento.coluna-1].style.opacity = "0.2" 
         }
-        metal.addEventListener("mouseout", () => {
-            document.querySelectorAll('td').forEach((celula) => {
+    })
+})
+    bloco.addEventListener("mouseout", () => {
+         document.querySelectorAll('td').forEach((celula) => {
                 const elemento = celula._elemento;
                 if (!elemento) return;
-                celula.style.backgroundColor = elemento.corGrupo
-            })
-        })
+                celula.style.opacity = "1"
+         })
     })
 })
