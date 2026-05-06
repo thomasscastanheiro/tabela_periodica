@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    
 }
 
 body{
@@ -42,13 +41,16 @@ table td h4{
 
 
 #detalhes{
-    height: 300px;
+    height: 250px;
     width: 685px;
     margin-left: 154px;
     margin-bottom: -298px;
-    background-color: wheat;
-    z-index: 50;
+    background-color: rgb(207, 207, 207);
     border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#detalhes h2{
+    margin: 5px;
 }
 #classificacoes{
     float: right;
@@ -124,4 +126,11 @@ table td h4{
     height: 125px;
     float: left;
     margin-left: 0.75px;
+}
+
+#nomedoelemento{
+    border-radius: 5px;
+    padding: 8px;
+    margin-left: 0;
+    width: 669px;
 }

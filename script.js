@@ -13,7 +13,13 @@ colecaoElementos.forEach((elemento) => {
     celula._elemento = elemento
     
     
-})          
+})         
+
+function normalizar(texto) {
+    return texto.split(" ").map(palavra => 
+            palavra.charAt(0).toUpperCase() + palavra.slice(1)
+        ).join(" ")
+}
 
 /* aparecer o elemento na div */
 document.querySelectorAll('td').forEach(td => {
@@ -23,9 +29,18 @@ document.querySelectorAll('td').forEach(td => {
         if (!elemento) return;
         
         document.getElementById("detalhes").innerHTML =`
-            <h1>${elemento.nome}</h1>`
+            <h1 id="nomedoelemento">${elemento.nome}  -  ${elemento.simbolo}</h1>
+            <h2>Massa Atômica: ${elemento.massaAtomica}</h2>
+            <h2>Número Atômico: ${elemento.numeroAtomico}</h2>
+            <h2>Configuração Eletrônica: ${elemento.configuracaoEletronica}</h2>
+            <h2>Grupo: ${normalizar(elemento.grupo)}</h2>
+            <h2>Ano de Descoberta: ${elemento.anoDeDescoberta}</h2>
+            `
+
             document.getElementById("detalhes").style.backgroundColor = elemento.corGrupo
-})        
+            document.getElementById("nomedoelemento").style.backgroundColor = elemento.corGrupo
+            document.getElementById("nomedoelemento").style.filter = "brightness(90%)"
+}) 
 })
 
 /* classificações dos elementos, filtrá-los */
